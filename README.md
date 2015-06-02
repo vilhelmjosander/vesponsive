@@ -1,5 +1,5 @@
 # vesponsive
-Move content around at different resolutions with ease
+Move content around at different screensizes with ease
 
 
 ##Usage
