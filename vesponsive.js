@@ -34,13 +34,18 @@ var Vesponsive = (function(root, undefined) {
       if(!node || !receiverNode) {
         return;
       }
+
+      if (Array.isArray(node)) {
+        node = node[0];
+      }
+
       _this.elems.push({
-        node:             Array.isArray(node) ? node[0] : node,
+        node:             node,
         breakPoint:       elem.breakpoint,
         receiver:         Array.isArray(receiverNode) ? receiverNode[0] : receiverNode,
         isMoved:          false,
-        origPrevSibling:  elem.previousElementSibling,
-        origParent:       elem.parentNode,
+        origPrevSibling:  node.previousElementSibling,
+        origParent:       node.parentNode,
         priority:         i,
         DOMmethod:        elem.position,
         additionalClass:  elem.additionalClass
@@ -71,9 +76,9 @@ var Vesponsive = (function(root, undefined) {
       } else if( elem.isMoved && width > breakPoint ) {
         elem.isMoved = false;
         if(elem.origPrevSibling) {
-          DOM.insertAfter(elem.origPrevSibling, elem.node);
+          DOM.after(elem.origPrevSibling, elem.node);
         } else {
-          DOM.prependChild(elem.origParent, elem.node);
+          DOM.prepend(elem.origParent, elem.node);
         }
         if(elem.additionalClass && elem.additionalClass.length) {
           DOM.removeClass(elem.node, elem.additionalClass);
