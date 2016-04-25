@@ -2,6 +2,10 @@
 Move content around at different screensizes with ease
 
 
+##Installation
+	bower install vesponsive --save
+
+
 ##Usage
 
 	Vesponsive.init({
