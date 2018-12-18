@@ -144,7 +144,8 @@ var Vesponsive = (function(root, undefined) {
   // Public
   return {
     init: init,
-    version: '1.0'
+    triggerResize: resizeHandler,
+    version: '1.1'
   };
 
 })(window);
