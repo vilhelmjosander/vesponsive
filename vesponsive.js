@@ -21,7 +21,7 @@ var Vesponsive = (function(root, undefined) {
 
   function addListeners() {
     // Listen
-    if (document.readyState === "complete" || document.readyState === "loaded") {
+    if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
       setElems();
     } else {
       listener('DOMContentLoaded', setElems);
