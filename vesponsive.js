@@ -21,7 +21,11 @@ var Vesponsive = (function(root, undefined) {
 
   function addListeners() {
     // Listen
-    listener('DOMContentLoaded', setElems);
+    if (document.readyState === "complete" || document.readyState === "loaded") {
+      setElems();
+    } else {
+      listener('DOMContentLoaded', setElems);
+    }
     listener('resize', resizeHandler);
   };
 
